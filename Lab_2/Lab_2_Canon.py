@@ -156,7 +156,10 @@ class Gun:
     def targetting(self, event):
         """Прицеливание. Зависит от положения мыши."""
         if event:
-            self.an = atan((event.pos[1] - 450) / (event.pos[0] - 20))
+            if (event.pos[0] - 20) != 0:
+                self.an = atan((event.pos[1] - 450) / (event.pos[0] - 20))
+            else:
+                self.an = 90
         if self.f2_on:
             self.color = RED
         else:
