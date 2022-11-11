@@ -76,7 +76,7 @@ class Ball:
         self.vx = 0
         self.vy = 0
         self.color = choice(GAME_COLORS)
-        self.live = 100
+        self.live = 120
 
     def move(self):
         """Переместить мяч по прошествии единицы времени.
@@ -94,10 +94,10 @@ class Ball:
             self.vy = -0.5 * self.vy
             if abs(self.vy) > 2:
                 self.y -= self.vy
-                self.vx = 0.7 * self.vx
+                self.vx = 0.8 * self.vx
             else:
                 self.vy = 0
-                self.vx = 0
+                #self.vx = 0
         if (self.x < 10) or (self.x > WIDTH - 10):
             self.vx = -0.5 * self.vx
             self.x += self.vx
@@ -159,7 +159,7 @@ class Gun:
             if (event.pos[0] - 20) != 0:
                 self.an = atan((event.pos[1] - 450) / (event.pos[0] - 20))
             else:
-                self.an = 90
+                self.an = -90
         if self.f2_on:
             self.color = RED
         else:
